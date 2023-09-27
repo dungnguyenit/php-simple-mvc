@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 20px;
+}
+.container h1 {
+  text-align: center;
+  background: -webkit-linear-gradient(0, #015aad, #00b74f);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+.box-search {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.box-search input {
+  height: 40px;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.table th,
+.table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table th {
+  background: -webkit-linear-gradient(0, #015aad, #00b74f);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+.table td {
+  font-size: 13px;
+  font-weight: 600;
+}
