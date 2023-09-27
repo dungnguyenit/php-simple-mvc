@@ -22,16 +22,14 @@ class ContactController
 
     public function add()
     {
-        include 'view/contacts/create.php';
+        // include 'view/contacts/create.php';
         $contactModel = new ContactModel();
-        if (isset($_POST['create'])) {
             $firstName = $_POST['firstName'];
             $lastName = $_POST['lastName'];
             $email = $_POST['email'];
             $phone = $_POST['phone'];
             $address = $_POST['address'];
             $contactModel->createModel($firstName, $lastName, $email, $phone, $address);
-            header('location:create');
-        }
+            header('location:index');
     }
 }
