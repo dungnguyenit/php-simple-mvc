@@ -15,8 +15,8 @@ $uri_parts = explode('/', $uri);
 // Define default controller and method
 $controller_name = 'ContactController';
 $method_name = 'index';
-
 // Check if a specific controller and method are requested
+
 if (!empty($uri_parts[0])) {
     $controller_name = ucfirst($uri_parts[0]) . 'Controller';
     if (!empty($uri_parts[1])) {

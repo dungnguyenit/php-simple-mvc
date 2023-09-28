@@ -12,6 +12,9 @@
 </head>
 
 <body>
+
+    <?php session_start(); ?>
+
     <div class="container">
         <h1>Contact List</h1>
         <!-- Add a search form to filter contacts -->
@@ -39,16 +42,17 @@
                 <?php foreach ($contacts as $contact) : ?>
                     <tr>
                         <td><?php echo $contact['id']; ?></td>
+
                         <td><?php echo $contact['first_name']; ?></td>
                         <td><?php echo $contact['last_name']; ?></td>
                         <td><?php echo $contact['email']; ?></td>
                         <td><?php echo $contact['phone']; ?></td>
                         <td><?php echo $contact['address']; ?></td>
-                        <td>
-                            <a href="view/<?php echo $contact['id']; ?>">
+                        <td style="display: flex;justify-content:center; gap: 5px;">
+                            <a href="<?= $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] ?>/contact/view?id=<?php echo $contact['id']; ?>">
                                 <button type="button" class="btn btn-outline-info">View</button></a>
-                            <a href="edit/<?php echo $contact['id']; ?>"><button type="button" class="btn btn-outline-warning">Edit</button></a>
-                            <a href="delete/<?php echo $contact['id']; ?>"><button type="button" class="btn btn-outline-danger">Delete</button></a>
+                            <a href="<?= $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] ?>/contact/edit?id=<?php echo $contact['id']; ?>"><button type="button" class="btn btn-outline-warning">Edit</button></a>
+                            <a href="<?= $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] ?>/contact/delete?id=<?php echo $contact['id']; ?>"><button type="button" class="btn btn-outline-danger">Delete</button></a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
