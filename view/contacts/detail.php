@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="../../public/css/globalStyles.css">
-<link rel="stylesheet" href="../../public/css/edit.css">
+<link rel="stylesheet" href="../../public/css/detail.css">
 
 <div class="container">
   <input type="hidden" name="id" value="<?php echo $detail['id'] ?>">
@@ -23,14 +23,10 @@
     </div>
     <div class="form-input">
       <label for="">address</label>
-      <textarea name="address" cols="30" rows="10" placeholder="Please enter address" disabled>
-          <?php echo $detail['address'] ?>
-        </textarea>
+      <textarea name="address" cols="30" rows="10" placeholder="Please enter address" disabled><?php echo $detail['address'] ?></textarea>
     </div>
     <div class="form-button">
-      <!-- <button type="button" name="saveData">Save</button> -->
-      <!-- <input type="submit" value="save" name="update"> -->
-      <a href="index"><button>Exit</button></a>
+      <a href="index">Exit</a>
     </div>
   </div>
 </div>

@@ -24,13 +24,10 @@
       </div>
       <div class="form-input">
         <label for="">address</label>
-        <textarea name="address" cols="30" rows="10" placeholder="Please enter address">
-          <?php echo $detail['address'] ?>
-        </textarea>
+        <textarea name="address" cols="30" rows="10" placeholder="Please enter address"><?php echo $detail['address'] ?></textarea>
       </div>
       <div class="form-button">
         <button type="submit" name="saveData">Save</button>
-        <!-- <input type="submit" value="save" name="update"> -->
         <button>Exit</button></a>
       </div>
     </div>

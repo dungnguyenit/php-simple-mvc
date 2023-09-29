@@ -5,11 +5,12 @@ class ContactController
     {
         // Create an instance of the ContactModel
         $contactModel = new ContactModel();
-
-        // Retrieve the list of contacts from the model
-        $contacts = $contactModel->getContacts();
-
-        // Include the HTML template for the list of contacts
+        if (isset($_GET['button_search'])) {
+            $content = $_GET['content'];
+            $contacts = $contactModel->searchModel($content);
+        } else {
+            $contacts = $contactModel->getContacts();
+        }
         include 'view/contacts/list.php';
     }
 
@@ -27,6 +28,8 @@ class ContactController
         $phone = $_POST['phone'];
         $address = $_POST['address'];
         $contactModel->createModel($firstName, $lastName, $email, $phone, $address);
+        session_start();
+        $_SESSION['success_message'] = 'Thêm thành công.';
         header('location:index');
     }
 
@@ -35,7 +38,6 @@ class ContactController
         $contactModel = new ContactModel();
         $id = $_GET['id'];
         $detail = $contactModel->getContactById($id);
-        // var_dump($detail);die;
         include 'view/contacts/edit.php';
     }
 
@@ -49,17 +51,15 @@ class ContactController
         $phone = $_POST['phone'];
         $address = $_POST['address'];
         $contactModel->updateModel($contactId, $first_name, $last_name, $email, $phone, $address);
-        header('location:index');
+        $url = "view?id=" .  $contactId;
+        header("location: $url");
     }
 
     public function view()
     {
-        // var_dump('jjjjj');
-        // die;
         $contactModel = new ContactModel();
         $id = $_GET['id'];
         $detail = $contactModel->getContactById($id);
-
         include 'view/contacts/detail.php';
     }
 
@@ -70,4 +70,5 @@ class ContactController
         $contactModel->deleteById($id);
         header('location:index');
     }
+    // The Search function is in the index function
 }

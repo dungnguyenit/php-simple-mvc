@@ -45,7 +45,7 @@
       <div class="input-data">
         <div class="inner"></div>
         <a href="view/listContact.php">
-          <input type="submit" value="show list data" name="show">
+          <input type="submit" value="Exit" name="show">
         </a>
       </div>
     </div>
