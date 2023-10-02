@@ -1,4 +1,5 @@
 <?php
+
 class ContactController
 {
     public function index()
@@ -27,10 +28,14 @@ class ContactController
         $email = $_POST['email'];
         $phone = $_POST['phone'];
         $address = $_POST['address'];
-        $contactModel->createModel($firstName, $lastName, $email, $phone, $address);
-        session_start();
-        $_SESSION['success_message'] = 'Thêm thành công.';
-        header('location:index');
+        $result = $contactModel->createModel($firstName, $lastName, $email, $phone, $address);
+        if ($result == null) {
+            $_SESSION['success_message'] = 'Thêm thành công.';
+            header('location:index');
+        } else {
+            $_SESSION['err_message'] = 'Thất Bại';
+            header('location:create');
+        }
     }
 
     public function edit()
@@ -67,8 +72,10 @@ class ContactController
     {
         $contactModel = new ContactModel();
         $id = $_POST['id'];
-        $contactModel->deleteById($id);
+        $result = $contactModel->deleteById($id);
+        if ($result == true) {
+            $_SESSION['delete'] = 'Deleted data successfully ';
+        }
         header('location:index');
     }
-    // The Search function is in the index function
 }

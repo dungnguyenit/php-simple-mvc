@@ -22,3 +22,13 @@ body {
   padding: 25px 40px 10px 40px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
+.alert {
+  position: absolute;
+  z-index: 10;
+  background-color: red;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  transition: 50%;
+}
+

@@ -10,15 +10,29 @@
     <link rel="stylesheet" href="../../public/css/globalStyles.css">
     <link rel="stylesheet" href="../../public/css/list.css">
 </head>
+<style>
+    #success-message {
+        position: fixed !important;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+    }
+</style>
 
 <body>
-    <!-- <?php
-    session_start();
-    if (isset($_SESSION['success_message'])) {
-        echo '<div id="success-message">' . $_SESSION['success_message'] . '</div>';
-        unset($_SESSION['success_message']);
-    }
-    ?> -->
+    <?php if (isset($_SESSION['success_message'])) { ?>
+        <div class="alert alert-success" id="success-message" role="alert">
+            <?php echo $_SESSION['success_message'] ?>
+        </div>
+    <?php unset($_SESSION['success_message']);
+    } ?>
+    <?php if (isset($_SESSION['delete'])) { ?>
+        <div class="alert alert-success" id="delete" role="alert">
+            <?php echo $_SESSION['delete'] ?>
+        </div>
+    <?php unset($_SESSION['delete']);
+    } ?>
 
     <div class="container">
         <h1>Contact List</h1>
@@ -69,16 +83,18 @@
 </body>
 
 </html>
-<!-- <script>
+
+<script>
     setTimeout(function() {
         var successMessage = document.getElementById('success-message');
+        var errorMessage = document.getElementById('err_message');
         if (successMessage) {
             successMessage.style.display = 'block';
             setTimeout(function() {
                 successMessage.style.display = 'none';
-            }, 2000); 
+            }, 2000);
         }
-    }, 0); 
-</script> -->
+    }, 0);
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
 </script>
