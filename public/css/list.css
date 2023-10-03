@@ -43,3 +43,8 @@
   font-weight: 600;
 }
 
+
+
+#searchInput::placeholder {
+font-size: 15px;
+}

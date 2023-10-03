@@ -31,7 +31,7 @@
         <div class="box-search">
             <a href="<?= $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] ?>/contact/create"><button type="button" class="btn btn-outline-success">Add New Contact</button></a>
             <form action="<?= $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] ?>/contact/index" method="GET">
-                <input type="text" name="content" placeholder="Search by phone" value="<?php echo $content = isset($_GET['content']) ? $_GET['content'] : ''; ?>">
+                <input type="text" name="content" id="searchInput" placeholder="Search by phone or name" value="<?php echo $content = isset($_GET['content']) ? $_GET['content'] : ''; ?>">
                 <button type="submit" class="btn btn-primary" name="button_search" id="">Search</button>
             </form>
         </div>

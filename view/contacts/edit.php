@@ -2,6 +2,12 @@
 <link rel="stylesheet" href="../../public/css/edit.css">
 
 
+<?php if (isset($_SESSION['edit_error_message'])) { ?>
+  <div class="alert alert-danger" role="alert" id="edit_message">
+    <?php echo $_SESSION['edit_error_message'] ?>
+  </div>
+<?php unset($_SESSION['edit_error_message']);
+} ?>
 
 <div class="container">
   <form action="update" method="POST">
@@ -35,3 +41,15 @@
     </div>
   </form>
 </div>
+
+<script>
+  setTimeout(function() {
+    var editMessage = document.getElementById('edit_message');
+    if (editMessage) {
+      editMessage.style.display = 'block';
+      setTimeout(function() {
+        editMessage.style.display = 'none';
+      }, 2000);
+    }
+  }, 0);
+</script>

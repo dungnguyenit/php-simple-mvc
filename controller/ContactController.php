@@ -4,7 +4,6 @@ class ContactController
 {
     public function index()
     {
-        // Create an instance of the ContactModel
         $contactModel = new ContactModel();
         if (isset($_GET['button_search'])) {
             $content = $_GET['content'];
@@ -29,9 +28,13 @@ class ContactController
         $phone = $_POST['phone'];
         $address = $_POST['address'];
         $result = $contactModel->createModel($firstName, $lastName, $email, $phone, $address);
+        $resultPhone = $contactModel->isPhoneExists($phone);
         if ($result == null) {
             $_SESSION['success_message'] = 'Account successfully created';
             header('location:index');
+        } else if ($resultPhone == true) {
+            $_SESSION['err_message'] = 'Phone number already exists';
+            header('location:create');
         } else {
             $_SESSION['err_message'] = 'Account creation failed';
             header('location:create');
@@ -55,6 +58,14 @@ class ContactController
         $email = $_POST['email'];
         $phone = $_POST['phone'];
         $address = $_POST['address'];
+
+        if (empty($email) || empty($phone)) {
+            $_SESSION['edit_error_message'] = 'Email and phone cannot be empty.';
+            $url = "edit?id=" . $contactId;
+            header("location: $url");
+            return;
+        }
+
         $result = $contactModel->updateModel($contactId, $first_name, $last_name, $email, $phone, $address);
         if ($result == null) {
             $_SESSION['edit_message'] = 'Updated data successfully';

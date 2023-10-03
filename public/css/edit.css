@@ -74,4 +74,10 @@
   font-weight: 600;
 }
 
-
+.alert {
+  background-color: #f8d7da;
+  padding: 13px 15px;
+  color: #a24a41;
+  border-radius: 8px;
+  border: 2px solid #f2b2b9;
+}
