@@ -10,15 +10,6 @@
     <link rel="stylesheet" href="../../public/css/globalStyles.css">
     <link rel="stylesheet" href="../../public/css/list.css">
 </head>
-<style>
-    #success-message {
-        position: fixed !important;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 100;
-    }
-</style>
 
 <body>
     <?php if (isset($_SESSION['success_message'])) { ?>
@@ -27,11 +18,11 @@
         </div>
     <?php unset($_SESSION['success_message']);
     } ?>
-    <?php if (isset($_SESSION['delete'])) { ?>
-        <div class="alert alert-success" id="delete" role="alert">
-            <?php echo $_SESSION['delete'] ?>
+    <?php if (isset($_SESSION['delete_message'])) { ?>
+        <div class="alert alert-danger" id="delete_message" role="alert">
+            <?php echo $_SESSION['delete_message'] ?>
         </div>
-    <?php unset($_SESSION['delete']);
+    <?php unset($_SESSION['delete_message']);
     } ?>
 
     <div class="container">
@@ -87,11 +78,17 @@
 <script>
     setTimeout(function() {
         var successMessage = document.getElementById('success-message');
-        var errorMessage = document.getElementById('err_message');
+        var deleteMessage = document.getElementById('delete_message');
         if (successMessage) {
             successMessage.style.display = 'block';
             setTimeout(function() {
                 successMessage.style.display = 'none';
+            }, 2000);
+        }
+        if (deleteMessage) {
+            deleteMessage.style.display = 'block';
+            setTimeout(function() {
+                deleteMessage.style.display = 'none';
             }, 2000);
         }
     }, 0);

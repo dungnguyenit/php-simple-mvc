@@ -1,6 +1,14 @@
 <link rel="stylesheet" href="../../public/css/globalStyles.css">
 <link rel="stylesheet" href="../../public/css/detail.css">
 
+<?php if (isset($_SESSION['edit_message'])) { ?>
+  <div class="alert alert-danger" role="alert" id="edit_message">
+    <?php echo $_SESSION['edit_message'] ?>
+  </div>
+<?php unset($_SESSION['edit_message']);
+} ?>
+
+
 <div class="container">
   <input type="hidden" name="id" value="<?php echo $detail['id'] ?>">
   <div class="content">
@@ -30,3 +38,15 @@
     </div>
   </div>
 </div>
+
+<script>
+  setTimeout(function() {
+    var editMessage = document.getElementById('edit_message');
+    if (editMessage) {
+      editMessage.style.display = 'block';
+      setTimeout(function() {
+        editMessage.style.display = 'none';
+      }, 2000);
+    }
+  }, 0);
+</script>

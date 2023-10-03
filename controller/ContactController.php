@@ -30,10 +30,10 @@ class ContactController
         $address = $_POST['address'];
         $result = $contactModel->createModel($firstName, $lastName, $email, $phone, $address);
         if ($result == null) {
-            $_SESSION['success_message'] = 'Thêm thành công.';
+            $_SESSION['success_message'] = 'Account successfully created';
             header('location:index');
         } else {
-            $_SESSION['err_message'] = 'Thất Bại';
+            $_SESSION['err_message'] = 'Account creation failed';
             header('location:create');
         }
     }
@@ -55,9 +55,15 @@ class ContactController
         $email = $_POST['email'];
         $phone = $_POST['phone'];
         $address = $_POST['address'];
-        $contactModel->updateModel($contactId, $first_name, $last_name, $email, $phone, $address);
-        $url = "view?id=" .  $contactId;
-        header("location: $url");
+        $result = $contactModel->updateModel($contactId, $first_name, $last_name, $email, $phone, $address);
+        if ($result == null) {
+            $_SESSION['edit_message'] = 'Updated data successfully';
+            $url = "view?id=" .  $contactId;
+            header("location: $url");
+        } else {
+            $url = "edit?id=" .  $contactId;
+            header("location: $url");
+        }
     }
 
     public function view()
@@ -74,7 +80,7 @@ class ContactController
         $id = $_POST['id'];
         $result = $contactModel->deleteById($id);
         if ($result == true) {
-            $_SESSION['delete'] = 'Deleted data successfully ';
+            $_SESSION['delete_message'] = 'Deleted data successfully ';
         }
         header('location:index');
     }

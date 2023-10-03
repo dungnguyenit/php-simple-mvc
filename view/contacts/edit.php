@@ -1,6 +1,8 @@
 <link rel="stylesheet" href="../../public/css/globalStyles.css">
 <link rel="stylesheet" href="../../public/css/edit.css">
 
+
+
 <div class="container">
   <form action="update" method="POST">
     <input type="hidden" name="id" value="<?php echo $detail['id'] ?>">
@@ -28,7 +30,7 @@
       </div>
       <div class="form-button">
         <button type="submit" name="saveData">Save</button>
-        <button>Exit</button></a>
+        <a href="index"><button type="button">Exit</button></a>
       </div>
     </div>
   </form>

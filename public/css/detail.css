@@ -60,3 +60,10 @@
   color: #ffffff;
   background-color: #f64f59;
 }
+#edit_message {
+  background-color: #d1e7dd;
+  padding: 10px 20px;
+  color: #0f4135;
+  border-radius: 8px;
+  border: 2px solid #aed5c3;
+}

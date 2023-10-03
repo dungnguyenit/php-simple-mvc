@@ -1,21 +1,12 @@
 <link rel="stylesheet" href="../../public/css/globalStyles.css">
 <link rel="stylesheet" href="../../public/css/create.css">
-<style>
-  #err_message {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 100;
-  }
-</style>
+
 <?php if (isset($_SESSION['err_message'])) { ?>
-  <div class="alert alert-danger" role="alert" id="err_message">
+  <div class="alert alert-success" id="err_message" role="alert">
     <?php echo $_SESSION['err_message'] ?>
   </div>
 <?php unset($_SESSION['err_message']);
 } ?>
-
 <div class="container">
   <h1>create new contact</h1>
   <form action="add" method="POST">
