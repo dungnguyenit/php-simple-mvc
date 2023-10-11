@@ -39,7 +39,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <!-- <th>ID</th> -->
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Email</th>
@@ -51,7 +51,7 @@
             <tbody class="table-group-divider">
                 <?php foreach ($contacts as $contact) : ?>
                     <tr>
-                        <td><?php echo $contact['id']; ?></td>
+                        <!-- <td><?php echo $contact['id']; ?></td> -->
                         <td><?php echo $contact['first_name']; ?></td>
                         <td><?php echo $contact['last_name']; ?></td>
                         <td><?php echo $contact['email']; ?></td>

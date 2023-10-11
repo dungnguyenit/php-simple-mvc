@@ -33,7 +33,7 @@ class ContactController
             $_SESSION['success_message'] = 'Account successfully created';
             header('location:index');
         } else if ($resultPhone == true) {
-            $_SESSION['err_message'] = 'Phone number already exists';
+            $_SESSION['err_phone'] = 'Phone number already exists';
             header('location:create');
         } else {
             $_SESSION['err_message'] = 'Account creation failed';

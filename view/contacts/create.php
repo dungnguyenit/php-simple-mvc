@@ -7,6 +7,12 @@
   </div>
 <?php unset($_SESSION['err_message']);
 } ?>
+<?php if (isset($_SESSION['err_phone'])) { ?>
+  <div class="alert alert-success" id="err_phone" role="alert">
+    <?php echo $_SESSION['err_phone'] ?>
+  </div>
+<?php unset($_SESSION['err_phone']);
+} ?>
 <div class="container">
   <h1>create new contact</h1>
   <form action="add" method="POST">
@@ -61,11 +67,17 @@
 <script>
   setTimeout(function() {
     var errorMessage = document.getElementById('err_message');
+    var errorPhone = document.getElementById('err_phone');
     if (errorMessage) {
       errorMessage.style.display = 'block';
       setTimeout(function() {
         errorMessage.style.display = 'none';
       }, 2000);
-    }
+    } else if (errorPhone) {
+      errorPhone.style.display = 'block';
+      setTimeout(function() {
+        errorPhone.style.display = 'none';
+      }, 2000);
+    q}
   }, 0);
 </script>
